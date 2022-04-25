@@ -1,0 +1,30 @@
+Copyright (c) Anudev Gill
+
+Pseudocode:
+
+START program
+BUILD a 10 by 10 board
+BUILD all the variables needed for the program
+FOR 10 times
+    GENERATE a random integer between 0 and 9 for the row number
+    GENERATE a random integer between 0 and 9 for the column number
+    ADD the [row, col] pair to 2D array mines which contains the locations of all the mines
+WHILE unHit and guessCounter < (100 - number of mines)
+    GET the coordinates of the player's click
+    IF the click is legal
+        ADD the coordinates of the player's click to 2D array clickTracker
+        INCREMENT guessCounter
+        LOOP through the mines array
+            IF the coordinates of the user's click match the position of a mine
+                REVEAL all the mines
+                SET unHit = false
+                PRINT a losing message saying that it took guessCounter tries until the player hit a mine
+            ELSE
+                COUNT the number of adjacent squares that contain a mine
+                PLACE a peg with this number at the location of the player's click
+    ELSE
+        PRINT a message telling the user their click was invalid
+IF guessCounter == 100 - number of mines
+    PRINT a winning message saying that it took guessCounter tries for the player to clear the board
+    REVEAL all the mines
+END program
